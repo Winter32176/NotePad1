@@ -13,10 +13,10 @@ public class Asker {
     }
 
 
-    public static int askInt(String msg) {
+    public static int askInt(String msg1) {
         for (;;){
             try {
-                System.out.print(msg + ": ");
+                System.out.print(msg1 + ": ");
                 int recordToDelete= scan.nextInt();
                 return recordToDelete;
             } catch (InputMismatchException wrong_input) {

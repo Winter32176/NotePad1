@@ -18,19 +18,17 @@ public class RecordDAO {
     }
 
     public List<Record> getAllRecords() {
-
-
         return Collections.unmodifiableList(records);
     }
 
     public static void deleteRecord(int delete) {
-        int m = 0;
+        int indexNum = 0;
         for (Record r : records) {
             if (delete == r.getId()) {
-                records.remove(m);
+                records.remove(indexNum);
                 break;
             }
-            m++;
+            indexNum++;
         }
     }
 

@@ -24,7 +24,7 @@ public class Main {
                     listRecords();
                     break;
                 case "delete":
-                    deleteFromlist();
+                    deleteRecord();
                     break;
                 default:
                     System.out.println("Wrong command");
@@ -34,7 +34,7 @@ public class Main {
 
     }
 
-    private static void deleteFromlist() {
+    private static void deleteRecord() {
         var delete = Asker.askInt("Id");
         RecordDAO.deleteRecord(delete);
     }
