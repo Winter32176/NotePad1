@@ -12,8 +12,20 @@ public class RecordDAO {
     private List<Record> records = new ArrayList<>();
     private static final File FILE = new File("Records");
 
+
     public void add(Record rec) {
         records.add(rec);
+    }
+
+    public List<Record> getAllRecords() {
+
+
+        return Collections.unmodifiableList(records);
+    }
+
+    public void deleteRecord() {
+      
+
     }
 
 
@@ -28,7 +40,6 @@ public class RecordDAO {
             System.out.println("Cannot load record list. Creating new");
         }
 
-
     }
 
     public void save() {
@@ -42,10 +53,4 @@ public class RecordDAO {
         }
     }
 
-
-    public List<Record> getAllRecords() {
-
-
-        return Collections.unmodifiableList(records);
-    }
 }

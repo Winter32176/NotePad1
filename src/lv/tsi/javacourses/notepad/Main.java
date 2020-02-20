@@ -23,12 +23,20 @@ public class Main {
                 case "list":
                     listRecords();
                     break;
+                case "delete":
+                    deleteFromlist();
+                    break;
                 default:
                     System.out.println("Wrong command");
             }
 
         }
 
+    }
+
+    private static void deleteFromlist() {
+        var delete = Asker.askInt("Id");
+        RecordDAO.deleteRecord();
     }
 
     private static void listRecords() {
