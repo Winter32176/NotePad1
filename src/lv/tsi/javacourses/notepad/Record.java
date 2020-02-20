@@ -8,6 +8,11 @@ public class Record {
     private String phone;
     private String email;
 
+    public Record() {
+        count++;
+        id = count;
+    }
+
     public void askInfo() {
         name = Asker.askString("Name");
         surname = Asker.askString("Surname");
@@ -19,7 +24,8 @@ public class Record {
     @Override
     public String toString() {
         return "Record{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +

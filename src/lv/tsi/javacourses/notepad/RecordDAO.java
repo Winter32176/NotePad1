@@ -22,11 +22,10 @@ public class RecordDAO {
 
             while (in.hasNext()) {
 
-
             }
 
         } catch (IOException e) {
-            System.out.println("Cannot load leaderboard. Creating new");
+            System.out.println("Cannot load record list. Creating new");
         }
 
 
@@ -35,12 +34,11 @@ public class RecordDAO {
     public void save() {
         try (PrintWriter out = new PrintWriter(FILE)) {
             for (Record r : records) {
-
                 out.printf("%s %s %s %s %n", r.getName(), r.getSurname(), r.getPhone(), r.getEmail());
             }
 
         } catch (IOException e) {
-            System.out.println("ERROR fFile unattainable");
+            System.out.println("ERROR file unattainable");
         }
     }
 
