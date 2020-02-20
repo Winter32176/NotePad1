@@ -1,9 +1,34 @@
 package lv.tsi.javacourses.notepad;
 
 public class Record {
+    private static int count;
+    private int id;
     private String name;
     private String surname;
     private String phone;
+    private String email;
+
+    public void askInfo() {
+        name = Asker.askString("Name");
+        surname = Asker.askString("Surname");
+        phone = Asker.askString("Phone");
+        email = Asker.askString("E-mail");
+
+    }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -27,5 +52,13 @@ public class Record {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
