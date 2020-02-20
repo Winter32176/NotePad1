@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RecordDAO {
-    private List<Record> records = new ArrayList<>();
+    private static List<Record> records = new ArrayList<>();
     private static final File FILE = new File("Records");
 
 
@@ -23,9 +23,15 @@ public class RecordDAO {
         return Collections.unmodifiableList(records);
     }
 
-    public void deleteRecord() {
-      
-
+    public static void deleteRecord(int delete) {
+        int m = 0;
+        for (Record r : records) {
+            if (delete == r.getId()) {
+                records.remove(m);
+                break;
+            }
+            m++;
+        }
     }
 
 

@@ -36,7 +36,7 @@ public class Main {
 
     private static void deleteFromlist() {
         var delete = Asker.askInt("Id");
-        RecordDAO.deleteRecord();
+        RecordDAO.deleteRecord(delete);
     }
 
     private static void listRecords() {
