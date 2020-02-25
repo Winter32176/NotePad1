@@ -1,20 +1,18 @@
 package lv.tsi.javacourses.notepad;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.*;
 
 public class RecordDAO {
-    private static List<Record> records = new ArrayList<>();
+    private static List<Person> records = new ArrayList<>();
     private static final File FILE = new File("Records");
 
 
-    public void add(Record rec) {
+    public void add(Person rec) {
         records.add(rec);
     }
 
-    public List<Record> getAllRecords() {
+    public List<Person> getAllRecords() {
         return Collections.unmodifiableList(records);
     }
 
@@ -30,19 +28,19 @@ public class RecordDAO {
 //        }
 //
 //        option 2
-//        records.removeIf(r-> r.getId()== delete)
+        records.removeIf(r-> r.getId()== delete);
 //
 //        option 3
-        Iterator<Record> i = records.iterator();
-        while (i.hasNext()) {
-            Record r = i.next();
-            if (r.getId() == delete) {
-                i.remove();
-                break;
-            }
-        }
+//        Iterator<Record> i = records.iterator();
+//        while (i.hasNext()) {
+//            Record r = i.next();
+//            if (r.getId() == delete) {
+//                i.remove();
+//                break;
+//            }
+//        }
 
-
+// если пусто сообщить и после удаления сообщить
     }
 
 
@@ -85,16 +83,16 @@ public class RecordDAO {
 //        }
 //
 //    }
-
-    public void save() {
-        try (PrintWriter out = new PrintWriter(FILE)) {
-            for (Record r : records) {
-                out.printf("%d %s %s %s %s %n", r.getId(), r.getName(), r.getSurname(), r.getPhone(), r.getEmail());
-            }
-
-        } catch (IOException e) {
-            System.out.println("ERROR file unattainable");
-        }
-    }
+//
+//    public void save() {
+//        try (PrintWriter out = new PrintWriter(FILE)) {
+//            for (Record r : records) {
+//                out.printf("%d %s %s %s %s %n", r.getId(), r.getName(), r.getSurname(), r.getPhone(), r.getEmail());
+//            }
+//
+//        } catch (IOException e) {
+//            System.out.println("ERROR file unattainable");
+//        }
+//    }
 
 }

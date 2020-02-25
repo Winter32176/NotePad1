@@ -1,6 +1,6 @@
 package lv.tsi.javacourses.notepad;
 
-public class Record {
+public class Person {
     private static int count;
     private int id;
     private String name;
@@ -8,7 +8,7 @@ public class Record {
     private String phone;
     private String email;
 
-    public Record() {
+    public Person() {
         count++;
         id = count;
     }

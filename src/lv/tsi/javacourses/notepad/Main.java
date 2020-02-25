@@ -11,7 +11,6 @@ public class Main {
             switch (cmd) {
                 case "exit":
                     System.out.println("Good bye");
-                    records.save();
                     return;
                 case "info":
                 case "help":
@@ -44,16 +43,37 @@ public class Main {
     }
 
     private static void listRecords() {
-        List<Record> all = records.getAllRecords();
+        List<Person> all = records.getAllRecords();
         for (var r : all) {
             System.out.println(r);
         }
     }
 
     private static void createRecord() {
-        var r = new Record();
-        r.askInfo();
-        records.add(r);
+        var type = Asker.askString("Record type");
+        switch (type) {
+            case "person":
+            case "pr":
+            case "Pr":
+            case "Person":
+                var r = new Person();
+                r.askInfo();
+                records.add(r);
+                break;
+            case "Book":
+            case "book":
+            case "bk":
+            case "Bk":
+                var b = new Book();
+                b.askInfo();
+//                records.add(b);
+                break;
+            default:
+                System.out.println("Wrong record type");
+
+
+        }
+
 
     }
 
