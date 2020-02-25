@@ -3,10 +3,7 @@ package lv.tsi.javacourses.notepad;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class RecordDAO {
     private static List<Record> records = new ArrayList<>();
@@ -22,34 +19,77 @@ public class RecordDAO {
     }
 
     public static void deleteRecord(int delete) {
-        int indexNum = 0;
-        for (Record r : records) {
-            if (delete == r.getId()) {
-                records.remove(indexNum);
+//        option 1
+//        for (int k = 0; k <records.size(); k++) {
+//            Record r = records.get(k);
+//            if (r.getId()== delete){
+//                records.remove(k);
+//                break;
+//            }
+//
+//        }
+//
+//        option 2
+//        records.removeIf(r-> r.getId()== delete)
+//
+//        option 3
+        Iterator<Record> i = records.iterator();
+        while (i.hasNext()) {
+            Record r = i.next();
+            if (r.getId() == delete) {
+                i.remove();
                 break;
             }
-            indexNum++;
         }
+        
+
     }
 
 
-    public void load() {
-        try (Scanner in = new Scanner(FILE)) {
+//          option 0
+//    public static void deleteRecord(int delete) {
+//        int indexNum = 0;
+//        for (Record r : records) {
+//            if (delete == r.getId()) {
+//                records.remove(indexNum);
+//                break;
+//            }
+//            indexNum++;
+//        }
+//    }
 
-            while (in.hasNext()) {
-
-            }
-
-        } catch (IOException e) {
-            System.out.println("Cannot load record list. Creating new");
-        }
-
-    }
+//
+//    public void load() {
+//        try (Scanner in = new Scanner(FILE)) {
+//
+//            while (in.hasNext()) {
+//                int id =  in.nextInt();
+//                String name = in.next();
+//                String surname = in.next();
+//                String phone = in.next();
+//                String email = in.next();
+//
+//
+//
+//
+//               Record.setName(name);
+//
+//
+//
+//                records.add(m);
+//
+//            }
+//
+//        } catch (IOException e) {
+//            System.out.println("Cannot load record list. Creating new");
+//        }
+//
+//    }
 
     public void save() {
         try (PrintWriter out = new PrintWriter(FILE)) {
             for (Record r : records) {
-                out.printf("%s %s %s %s %n", r.getName(), r.getSurname(), r.getPhone(), r.getEmail());
+                out.printf("%d %s %s %s %s %n", r.getId(), r.getName(), r.getSurname(), r.getPhone(), r.getEmail());
             }
 
         } catch (IOException e) {

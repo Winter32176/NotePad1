@@ -18,12 +18,16 @@ public class Main {
                     showHelp();
                     break;
                 case "create":
+                case "cr":
                     createRecord();
                     break;
                 case "list":
                     listRecords();
                     break;
                 case "delete":
+                case "del":
+                case "remove":
+                case "rm":
                     deleteRecord();
                     break;
                 default:
