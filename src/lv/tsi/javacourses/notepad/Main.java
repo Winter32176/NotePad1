@@ -109,6 +109,19 @@ public class Main {
                 addRecord(new Reminder());
                 break;
 
+            case "Car":
+            case "car":
+                addRecord(new Car());
+                break;
+
+            case "Type":
+                addRecord(new TypeOfEngine());
+                break;
+
+            case "fuel":
+                addRecord(new Fuel());
+                break;
+
             default:
                 System.out.println("Wrong record type");
         }
