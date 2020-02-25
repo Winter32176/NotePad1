@@ -1,18 +1,13 @@
 package lv.tsi.javacourses.notepad;
 
-public class Person {
-    private static int count;
-    private int id;
+public class Person extends Record {
     private String name;
     private String surname;
     private String phone;
     private String email;
 
-    public Person() {
-        count++;
-        id = count;
-    }
 
+    @Override
     public void askInfo() {
         name = Asker.askString("Name");
         surname = Asker.askString("Surname");
@@ -22,11 +17,10 @@ public class Person {
     }
 
 
-
     @Override
     public String toString() {
-        return "Record{" +
-                "id=" + id +
+        return "Person{" +
+                "id=" + getId() +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phone='" + phone + '\'' +
@@ -34,9 +28,6 @@ public class Person {
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;

@@ -4,15 +4,19 @@ import java.io.File;
 import java.util.*;
 
 public class RecordDAO {
-    private static List<Person> records = new ArrayList<>();
+    private static List<Record> records = new ArrayList<>();
     private static final File FILE = new File("Records");
 
+    public static void deleteAllRecords() {
+        records.clear();
+    }
 
-    public void add(Person rec) {
+
+    public void add(Record rec) {
         records.add(rec);
     }
 
-    public List<Person> getAllRecords() {
+    public List<Record> getAllRecords() {
         return Collections.unmodifiableList(records);
     }
 
@@ -28,7 +32,7 @@ public class RecordDAO {
 //        }
 //
 //        option 2
-        records.removeIf(r-> r.getId()== delete);
+        records.removeIf(r -> r.getId() == delete);
 //
 //        option 3
 //        Iterator<Record> i = records.iterator();
@@ -41,7 +45,17 @@ public class RecordDAO {
 //        }
 
 // если пусто сообщить и после удаления сообщить
+
     }
+
+    public static void listEmpty() {
+        if (records.size() == 0) {
+            System.out.println("List is empty");
+        }
+
+    }
+
+
 
 
 //          option 0

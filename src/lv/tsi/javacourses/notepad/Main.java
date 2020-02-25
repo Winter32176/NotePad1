@@ -1,5 +1,6 @@
 package lv.tsi.javacourses.notepad;
 
+import javax.naming.NoPermissionException;
 import java.util.List;
 
 public class Main {
@@ -29,6 +30,14 @@ public class Main {
                 case "rm":
                     deleteRecord();
                     break;
+                case "Del all":
+                case "DeleteAll":
+                case "dl all":
+                case "dal":
+                    deleteAll();
+                    break;
+
+
                 default:
                     System.out.println("Wrong command");
             }
@@ -37,43 +46,72 @@ public class Main {
 
     }
 
+
+    private static void deleteAll() {
+
+        var confirm = Asker.askString("Delete all?");
+        if (confirm.equalsIgnoreCase("yes")) RecordDAO.deleteAllRecords();
+
+    }
+
     private static void deleteRecord() {
+        RecordDAO.listEmpty();
         var delete = Asker.askInt("Id");
         RecordDAO.deleteRecord(delete);
     }
 
+
     private static void listRecords() {
-        List<Person> all = records.getAllRecords();
+        var all = records.getAllRecords();
+        RecordDAO.listEmpty();
         for (var r : all) {
             System.out.println(r);
         }
     }
 
+
+    private static void addRecord(Record r) {
+        r.askInfo();
+        records.add(r);
+        System.out.println("Created: " + r);
+    }
+
     private static void createRecord() {
+
         var type = Asker.askString("Record type");
         switch (type) {
             case "person":
             case "pr":
             case "Pr":
             case "Person":
-                var r = new Person();
-                r.askInfo();
-                records.add(r);
+                addRecord(new Person());
                 break;
+
             case "Book":
             case "book":
             case "bk":
             case "Bk":
-                var b = new Book();
-                b.askInfo();
-//                records.add(b);
+                addRecord(new Book());
                 break;
+
+            case "Note":
+            case "note":
+                addRecord(new Note());
+                break;
+
+            case "Alarm":
+            case "alarm":
+                addRecord(new Alarm());
+                break;
+
+            case "Reminder":
+            case "reminder":
+                addRecord(new Reminder());
+                break;
+
             default:
                 System.out.println("Wrong record type");
-
-
         }
-
 
     }
 
