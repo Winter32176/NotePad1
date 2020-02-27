@@ -3,6 +3,7 @@ package lv.tsi.javacourses.notepad;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,12 +13,22 @@ public class Asker {
 
     public static String askString(String msg) {
         System.out.print(msg + ": ");
-        String text;
-        text = scan.next();
-//        text.startsWith() text.endsWith()
+        String text=scan.next();
 
-        return text;
+        ArrayList<String> text1 = new ArrayList<>();
+        if (text.startsWith("'")) {
+            for (; ; ) {
+                String abc = scan.next();
+                text1.add(text);
+                text1.add(abc);
+                if (abc.endsWith("'")) break;
+            }
 
+        }else return text;
+        String bigText = String.valueOf(text1);
+
+
+        return bigText;
     }
 
 

@@ -36,10 +36,7 @@ public class Main {
                 case "rm":
                     deleteRecord();
                     break;
-                case "Del all":
-                case "DeleteAll":
-                case "dl all":
-                case "dal":
+                case "DelAll":
                     deleteAll();
                     break;
 
