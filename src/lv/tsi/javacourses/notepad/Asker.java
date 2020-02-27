@@ -1,5 +1,8 @@
 package lv.tsi.javacourses.notepad;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,7 +12,8 @@ public class Asker {
 
     public static String askString(String msg) {
         System.out.print(msg + ": ");
-        return scan.next();
+
+
     }
 
 
@@ -18,11 +22,12 @@ public class Asker {
             int result = askInt(msg1);
             if (result < min || result > max) {
                 System.out.printf("Value should be in range %d to %d %n", min, max);
-            }else {
+            } else {
                 return result;
             }
         }
     }
+
 
     public static int askInt(String msg1) {
         for (; ; ) {
@@ -39,4 +44,28 @@ public class Asker {
 
 
     }
+
+
+    public static LocalTime askTime(String msg) {
+        for (; ; ) {
+            try {
+                var strTime = askString(msg + "(" + StringDateTime.TIME_PATTERN + ")");
+                return StringDateTime.timeFromString(strTime);
+            } catch (DateTimeParseException e) {
+                System.out.println("Wrong time format." + "(" + StringDateTime.TIME_PATTERN + ")");
+            }
+        }
+    }
+
+    public static LocalDate askDate(String msg) {
+        for (; ; ) {
+            try {
+                var strDate = askString(msg + "(" + StringDateTime.DATE_PATTERN + ")");
+                return StringDateTime.dateFromString(strDate);
+            } catch (DateTimeParseException e) {
+                System.out.println("Wrong date format." + "(" + StringDateTime.DATE_PATTERN + ")");
+            }
+        }
+    }
+
 }

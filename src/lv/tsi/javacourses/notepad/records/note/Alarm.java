@@ -1,20 +1,23 @@
 package lv.tsi.javacourses.notepad.records.note;
 
 import lv.tsi.javacourses.notepad.Asker;
+import lv.tsi.javacourses.notepad.StringDateTime;
+
+import java.time.LocalTime;
 
 public class Alarm extends Note {
-    private String time;
+    private LocalTime time;
 
     @Override
     public void askInfo() {
-        time = Asker.askString("Time");
+        time = Asker.askTime("Time ");
         super.askInfo();
     }
 
     @Override
     public String stringContent() {
         return super.stringContent() +
-                ", time='" + time + '\'';
+                ", time='" + StringDateTime.timeToString(time) + '\'';
     }
 
     @Override
@@ -22,13 +25,11 @@ public class Alarm extends Note {
         return "Alarm";
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(String date) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
-
-
 }

@@ -72,43 +72,6 @@ public class RecordDAO {
 //        }
 //    }
 
-//
-//    public void load() {
-//        try (Scanner in = new Scanner(FILE)) {
-//
-//            while (in.hasNext()) {
-//                int id =  in.nextInt();
-//                String name = in.next();
-//                String surname = in.next();
-//                String phone = in.next();
-//                String email = in.next();
-//
-//
-//
-//
-//               Record.setName(name);
-//
-//
-//
-//                records.add(m);
-//
-//            }
-//
-//        } catch (IOException e) {
-//            System.out.println("Cannot load record list. Creating new");
-//        }
-//
-//    }
-//
-//    public void save() {
-//        try (PrintWriter out = new PrintWriter(FILE)) {
-//            for (Record r : records) {
-//                out.printf("%d %s %s %s %s %n", r.getId(), r.getName(), r.getSurname(), r.getPhone(), r.getEmail());
-//            }
-//
-//        } catch (IOException e) {
-//            System.out.println("ERROR file unattainable");
-//        }
-//    }
+
 
 }
