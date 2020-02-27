@@ -12,12 +12,16 @@ public class Note extends Record {
 
 
     @Override
-    public String toString() {
-        return "Note{" +
-                "Id='" + getId() + '\'' +
-                ", text='" + text + '\'' +
-                '}';
+    public String stringContent() {
+        return super.stringContent() +
+                ", text='" + text + '\'';
     }
+
+    @Override
+    protected String type() {
+        return "Note";
+    }
+
 
     public String getText() {
         return text;

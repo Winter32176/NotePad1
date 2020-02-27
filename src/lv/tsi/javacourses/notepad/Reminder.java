@@ -10,13 +10,14 @@ public class Reminder extends Alarm {
     }
 
     @Override
-    public String toString() {
-        return "Reminder{" +
-                "id=" + getId() +
-                ", Date='" + getDate() + '\'' +
-                ", time='" + getTime() + '\'' +
-                ", Text='" + getText() + '\'' +
-                '}';
+    public String stringContent() {
+        return super.stringContent() +
+                ", Date='" + date + '\'';
+    }
+
+    @Override
+    protected String type() {
+        return "Reminder";
     }
 
     public String getDate() {

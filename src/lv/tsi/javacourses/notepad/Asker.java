@@ -13,12 +13,23 @@ public class Asker {
     }
 
 
+    public static int askInt(String msg1, int min, int max) {
+        for (; ; ) {
+            int result = askInt(msg1);
+            if (result < min || result > max) {
+                System.out.printf("Value should be in range %d to %d %n", min, max);
+            }else {
+                return result;
+            }
+        }
+    }
+
     public static int askInt(String msg1) {
         for (; ; ) {
             try {
                 System.out.print(msg1 + ": ");
-                int recordToDelete = scan.nextInt();
-                return recordToDelete;
+                int integer = scan.nextInt();
+                return integer;
             } catch (InputMismatchException wrong_input) {
                 String str = scan.next();
                 System.out.println(str + " isn't number");

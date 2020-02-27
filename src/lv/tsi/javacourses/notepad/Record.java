@@ -15,10 +15,16 @@ public abstract class Record {
 
     public abstract void askInfo();
 
-    @Override
-    public String toString() {
-        return "Record{" +
-                "id=" + id +
-                '}';
+    protected String stringContent() {
+        return "id=" + id;
     }
+
+    protected abstract String type();
+
+
+    @Override
+    public final String toString() {
+        return type() + "{" + stringContent() + '}';
+    }
+
 }

@@ -18,16 +18,19 @@ public class Person extends Record {
 
 
     @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + getId() +
+    public String stringContent() {
+        return super.stringContent() + "{" +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+                ", email='" + email + '\'' ;
+
     }
 
+    @Override
+    protected String type() {
+        return "Person";
+    }
 
     public String getName() {
         return name;

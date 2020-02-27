@@ -1,8 +1,5 @@
 package lv.tsi.javacourses.notepad;
 
-import javax.naming.NoPermissionException;
-import java.util.List;
-
 public class Main {
     private static RecordDAO records = new RecordDAO();
 
@@ -111,7 +108,7 @@ public class Main {
 
             case "Car":
             case "car":
-                addRecord(new Car());
+                addRecord(new Vehicle());
                 break;
 
             case "Type":

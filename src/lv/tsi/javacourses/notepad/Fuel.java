@@ -19,19 +19,6 @@ public class Fuel extends TypeOfEngine {
         super.askInfo();
     }
 
-    @Override
-    public String toString() {
-        return "Fuel{" +
-                "fuelType='" + fuelType + '\'' +
-                "Country of fuel='" + countryF + '\'' +
-                "Octane rating='" + octaneRating + '\'' +
-                ", Winter or summer fuel='" + winter1summer + '\'' +
-                ", Price='" + fuelPrice + '\'' +
-                "typeOfEngine='" + getTypeOfEngine() + '\'' +
-                "carBrand='" + getVehicleBrand() + '\'' +
-                ", carType='" + getVehicleType() + '\'' +
-                '}';
-    }
 
 
     public String getCountryF() {

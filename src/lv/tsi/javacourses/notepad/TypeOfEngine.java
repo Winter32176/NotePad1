@@ -1,6 +1,6 @@
 package lv.tsi.javacourses.notepad;
 
-public class TypeOfEngine extends Car {
+public class TypeOfEngine extends Vehicle {
     private String typeOfEngine;
 
     @Override
@@ -9,14 +9,7 @@ public class TypeOfEngine extends Car {
         super.askInfo();
     }
 
-    @Override
-    public String toString() {
-        return "TypeOfEngine{" +
-                "typeOfEngine='" + typeOfEngine + '\'' +
-                "carBrand='" + getVehicleBrand() + '\'' +
-                ", carType='" + getVehicleType() + '\'' +
-                '}';
-    }
+
 
 
     public String getTypeOfEngine() {
