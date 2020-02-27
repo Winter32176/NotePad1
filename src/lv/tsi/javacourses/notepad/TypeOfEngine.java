@@ -13,8 +13,8 @@ public class TypeOfEngine extends Car {
     public String toString() {
         return "TypeOfEngine{" +
                 "typeOfEngine='" + typeOfEngine + '\'' +
-                "carBrand='" + getCarBrand() + '\'' +
-                ", carType='" + getCarType() + '\'' +
+                "carBrand='" + getVehicleBrand() + '\'' +
+                ", carType='" + getVehicleType() + '\'' +
                 '}';
     }
 

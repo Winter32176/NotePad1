@@ -1,37 +1,38 @@
 package lv.tsi.javacourses.notepad;
 
 public class Car extends Record {
-    private String carBrand;
-    private String carType;
+    private String vehicleType;
+    private String vehicleBrand;
+
 
     @Override
     public void askInfo() {
-        carBrand = Asker.askString("Enter car brand");
-        carType = Asker.askString("Enter car type");
+        vehicleBrand = Asker.askString("Enter car brand");
+        vehicleType = Asker.askString("Enter car type");
     }
 
 
     @Override
     public String toString() {
         return "Car{" +
-                "carBrand='" + carBrand + '\'' +
-                ", carType='" + carType + '\'' +
+                "carBrand='" + vehicleBrand + '\'' +
+                ", carType='" + vehicleType + '\'' +
                 '}';
     }
 
-    public String getCarType() {
-        return carType;
+    public String getVehicleType() {
+        return vehicleType;
     }
 
-    public void setCarType(String carType) {
-        this.carType = carType;
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
-    public String getCarBrand() {
-        return carBrand;
+    public String getVehicleBrand() {
+        return vehicleBrand;
     }
 
-    public void setCarBrand(String carBrand) {
-        this.carBrand = carBrand;
+    public void setVehicleBrand(String vehicleBrand) {
+        this.vehicleBrand = vehicleBrand;
     }
 }
