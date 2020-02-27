@@ -1,5 +1,14 @@
 package lv.tsi.javacourses.notepad;
 
+import lv.tsi.javacourses.notepad.records.*;
+import lv.tsi.javacourses.notepad.records.note.Alarm;
+import lv.tsi.javacourses.notepad.records.Book;
+import lv.tsi.javacourses.notepad.records.note.Note;
+import lv.tsi.javacourses.notepad.records.note.Reminder;
+import lv.tsi.javacourses.notepad.records.vehicle.Fuel;
+import lv.tsi.javacourses.notepad.records.vehicle.TypeOfEngine;
+import lv.tsi.javacourses.notepad.records.vehicle.Vehicle;
+
 public class Main {
     private static RecordDAO records = new RecordDAO();
 
@@ -67,7 +76,7 @@ public class Main {
     }
 
 
-    private static void addRecord(Record r) {
+    private static void addRecord(AbstractRecord r) {
         r.askInfo();
         records.add(r);
         System.out.println("Created: " + r);

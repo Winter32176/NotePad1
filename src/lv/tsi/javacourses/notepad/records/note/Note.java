@@ -1,6 +1,9 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records.note;
 
-public class Note extends Record {
+import lv.tsi.javacourses.notepad.Asker;
+import lv.tsi.javacourses.notepad.records.AbstractRecord;
+
+public class Note extends AbstractRecord {
     private String text;
 
 

@@ -1,10 +1,10 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records;
 
-public abstract class Record {
+public abstract class AbstractRecord {
     private static int count;
     private int id;
 
-    public Record() {
+    public AbstractRecord() {
         count++;
         this.id = count;
     }

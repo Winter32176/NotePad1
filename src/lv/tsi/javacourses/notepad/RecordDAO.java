@@ -1,10 +1,12 @@
 package lv.tsi.javacourses.notepad;
 
+import lv.tsi.javacourses.notepad.records.AbstractRecord;
+
 import java.io.File;
 import java.util.*;
 
 public class RecordDAO {
-    private static List<Record> records = new ArrayList<>();
+    private static List<AbstractRecord> records = new ArrayList<>();
     private static final File FILE = new File("Records");
 
     public static void deleteAllRecords() {
@@ -12,11 +14,11 @@ public class RecordDAO {
     }
 
 
-    public void add(Record rec) {
+    public void add(AbstractRecord rec) {
         records.add(rec);
     }
 
-    public List<Record> getAllRecords() {
+    public List<AbstractRecord> getAllRecords() {
         return Collections.unmodifiableList(records);
     }
 

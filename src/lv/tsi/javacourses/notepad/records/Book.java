@@ -1,6 +1,9 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records;
 
-public class Book extends Record {
+import lv.tsi.javacourses.notepad.Asker;
+import lv.tsi.javacourses.notepad.records.AbstractRecord;
+
+public class Book extends AbstractRecord {
     private String title;
     private String isbn;
     private int pageCount;

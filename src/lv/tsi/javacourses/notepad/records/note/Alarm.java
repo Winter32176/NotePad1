@@ -1,4 +1,6 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records.note;
+
+import lv.tsi.javacourses.notepad.Asker;
 
 public class Alarm extends Note {
     private String time;

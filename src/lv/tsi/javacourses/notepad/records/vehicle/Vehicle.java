@@ -1,6 +1,9 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records.vehicle;
 
-public class Vehicle extends Record {
+import lv.tsi.javacourses.notepad.Asker;
+import lv.tsi.javacourses.notepad.records.AbstractRecord;
+
+public class Vehicle extends AbstractRecord {
     private String vehicleType;
     private String vehicleBrand;
     private String vehicleModel;

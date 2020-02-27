@@ -1,4 +1,7 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records.note;
+
+import lv.tsi.javacourses.notepad.Asker;
+import lv.tsi.javacourses.notepad.records.note.Alarm;
 
 public class Reminder extends Alarm {
     private String date;

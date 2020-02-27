@@ -1,4 +1,6 @@
-package lv.tsi.javacourses.notepad;
+package lv.tsi.javacourses.notepad.records.vehicle;
+
+import lv.tsi.javacourses.notepad.Asker;
 
 public class Fuel extends TypeOfEngine {
     private String fuelType;
