@@ -8,83 +8,66 @@ public class Vehicle extends AbstractRecord {
     private String vehicleBrand;
     private String vehicleModel;
     private String vehiclePassengersCount;
-    private String vehicleWheelCount;
-    private String vehicleYear;
+    private int vehicleWheelCount;
+    private int vehicleYear;
     private String vehicleColor;
 
 
     @Override
     public void askInfo() {
-        vehicleBrand = Asker.askString("Enter car brand");
-        vehicleType = Asker.askString("Enter car type");
-        vehicleBrand = Asker.askString("Enter car brand");
-        vehicleType = Asker.askString("Enter car type");
-        vehicleType = Asker.askString("Enter car type");
-        vehicleType = Asker.askString("Enter car type");
-        vehicleType = Asker.askString("Enter car type");
+        vehicleBrand = Asker.askString("Enter vehicle brand");
+        vehicleType = Asker.askString("Enter vehicle type");
+        vehicleModel = Asker.askString("Enter vehicle model");
+        vehiclePassengersCount = Asker.askString("Enter passenger capacity ");
+        vehicleWheelCount = Asker.askInt("Enter number of wheels");
+        vehicleYear = Asker.askInt("Enter production year");
+        vehicleColor = Asker.askString("Enter color");
+    }
+
+    @Override
+    public String stringContent() {
+        return super.stringContent() +
+                ", vehicle Brand='" + vehicleBrand + '\'' +
+                ", vehicle type='" + vehicleType + '\'' +
+                ", vehicle model='" + vehicleModel + '\'' +
+                ", vehicle passenger capacity='" + vehiclePassengersCount + '\'' +
+                ", vehicle number of wheels='" + vehicleWheelCount + '\'' +
+                ", vehicle production year='" + vehicleYear + '\'' +
+                ", vehicle color='" + vehicleColor + '\'';
+
     }
 
     @Override
     protected String type() {
-        return null;
+        return "Vehicle";
     }
 
 
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
+    }
 
-
-    public String getVehicleModel() {
-        return vehicleModel;
+    public void setVehicleBrand(String vehicleBrand) {
+        this.vehicleBrand = vehicleBrand;
     }
 
     public void setVehicleModel(String vehicleModel) {
         this.vehicleModel = vehicleModel;
     }
 
-    public String getVehiclePassengersCount() {
-        return vehiclePassengersCount;
-    }
-
     public void setVehiclePassengersCount(String vehiclePassengersCount) {
         this.vehiclePassengersCount = vehiclePassengersCount;
     }
 
-    public String getVehicleWheelCount() {
-        return vehicleWheelCount;
-    }
-
-    public void setVehicleWheelCount(String vehicleWheelCount) {
+    public void setVehicleWheelCount(int vehicleWheelCount) {
         this.vehicleWheelCount = vehicleWheelCount;
     }
 
-    public String getVehicleYear() {
-        return vehicleYear;
-    }
-
-    public void setVehicleYear(String vehicleYear) {
+    public void setVehicleYear(int vehicleYear) {
         this.vehicleYear = vehicleYear;
-    }
-
-    public String getVehicleColor() {
-        return vehicleColor;
     }
 
     public void setVehicleColor(String vehicleColor) {
         this.vehicleColor = vehicleColor;
-    }
-
-    public String getVehicleType() {
-        return vehicleType;
-    }
-
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
-    }
-
-    public String getVehicleBrand() {
-        return vehicleBrand;
-    }
-
-    public void setVehicleBrand(String vehicleBrand) {
-        this.vehicleBrand = vehicleBrand;
     }
 }

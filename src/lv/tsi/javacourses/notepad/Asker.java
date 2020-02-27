@@ -14,13 +14,8 @@ public class Asker {
         System.out.print(msg + ": ");
         String text;
         text = scan.next();
-        if (text.endsWith("'")) {
-            for (; ; ) {
-                text = scan.next();
-                
-                if (text.endsWith("'")) break;
-            }
-        }
+//        text.startsWith() text.endsWith()
+
         return text;
 
     }

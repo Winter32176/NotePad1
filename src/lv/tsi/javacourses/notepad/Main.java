@@ -115,8 +115,8 @@ public class Main {
                 addRecord(new Reminder());
                 break;
 
-            case "Car":
-            case "car":
+            case "Vehicle":
+            case "vehicle":
                 addRecord(new Vehicle());
                 break;
 

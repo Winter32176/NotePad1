@@ -11,8 +11,15 @@ public class TypeOfEngine extends Vehicle {
         super.askInfo();
     }
 
+    public String stringContent() {
+        return super.stringContent() +
+                ", Type of engine='" + typeOfEngine + '\'';
+    }
 
-
+    @Override
+    protected String type() {
+        return "Type of engine";
+    }
 
     public String getTypeOfEngine() {
         return typeOfEngine;

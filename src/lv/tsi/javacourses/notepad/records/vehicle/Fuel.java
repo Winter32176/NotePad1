@@ -22,6 +22,21 @@ public class Fuel extends TypeOfEngine {
     }
 
 
+    @Override
+    public String stringContent() {
+        return super.stringContent() +
+                ", Fuel type='" + fuelType + '\'' +
+                ", Country of fuel='" + countryF + '\'' +
+                ", Octane rating='" + octaneRating + '\'' +
+                ", Winter or summer fuel='" + winter1summer + '\'' +
+                ", Price='" + fuelPrice + '\'';
+    }
+
+    @Override
+    protected String type() {
+        return "Fuel";
+    }
+
 
     public String getCountryF() {
         return countryF;
