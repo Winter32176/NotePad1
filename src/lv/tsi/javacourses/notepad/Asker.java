@@ -5,7 +5,10 @@ import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.String.valueOf;
 
 public class Asker {
     private static Scanner scan = new Scanner(System.in);
@@ -13,23 +16,82 @@ public class Asker {
 
     public static String askString(String msg) {
         System.out.print(msg + ": ");
-        String text=scan.next();
+        String text = scan.next();
 
-        ArrayList<String> text1 = new ArrayList<>();
-        if (text.startsWith("'")) {
+        if (text.startsWith("\"")) {
+            ArrayList<String> text1 = new ArrayList<>();
+            text1.add(text);
+
             for (; ; ) {
-                String abc = scan.next();
-                text1.add(text);
-                text1.add(abc);
-                if (abc.endsWith("'")) break;
+                String text3 = scan.next();
+                text1.add(text3);
+
+                if (text3.endsWith("\"")) {
+                    text3 = String.valueOf(text1);
+                    return text3;
+                }
             }
 
-        }else return text;
-        String bigText = String.valueOf(text1);
+        }
 
 
-        return bigText;
+        return text;
+
     }
+
+
+//    public static String askString(String msg) {
+//        System.out.print(msg + ": ");
+//        int m = 0;
+//        String text3 = null;
+//        String text = null;
+//        ArrayList<String> text1 = new ArrayList<>();
+//        for (int i = 0; i < m + 1; i++) {
+//
+//            text = scan.next();
+//
+//            if (text.startsWith("\"")) {
+//                if (scan.hasNext()) {
+//                    m+=2;
+//                }
+//            }
+//
+//            text1.add(text);
+//            text3 = String.valueOf(text1);
+//            if (text.endsWith("\"")) {
+//
+//                break;
+//            }
+//
+//        }
+//
+//
+//        if (m > 1) return text3;
+//        return text;
+//    }
+
+//
+//    public static String askString(String msg) {
+//        System.out.print(msg + ": ");
+//        ArrayList<String> text1 = new ArrayList<>();
+//        String text = scan.next();
+//        text1.add(text);
+//
+//        if (text.startsWith("\"")) {
+//            for (; ; ) {
+//                String abc = scan.next();
+//
+//                text1.add(abc);
+//                if (abc.endsWith("\"")) break;
+//            }
+//            return text3;
+//        }
+//
+//        String text22 = valueOf(text1);
+//
+//
+//        return text22;
+//    }
 
 
     public static int askInt(String msg1, int min, int max) {
