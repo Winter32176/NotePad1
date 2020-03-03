@@ -13,31 +13,45 @@ import static java.lang.String.valueOf;
 public class Asker {
     private static Scanner scan = new Scanner(System.in);
 
-
     public static String askString(String msg) {
         System.out.print(msg + ": ");
-        String text = scan.next();
+        var result = new StringBuilder(100);
+        var str = scan.next();
+        result.append(str);
+        if (str.startsWith("\"")) {
+            while (!str.endsWith("\"")) {
+                str = scan.next();
+                result.append(" ");
+                result.append(str);
 
-        if (text.startsWith("\"")) {
-            ArrayList<String> text1 = new ArrayList<>();
-            text1.add(text);
-
-            for (; ; ) {
-                String text3 = scan.next();
-                text1.add(text3);
-
-                if (text3.endsWith("\"")) {
-                    text3 = String.valueOf(text1);
-                    return text3;
-                }
             }
-
         }
 
-
-        return text;
-
+        return result.toString();
     }
+
+
+//    public static String askString(String msg) {
+//        System.out.print(msg + ": ");
+//        String text = scan.next();
+//
+//        if (text.startsWith("\"")) {
+//            ArrayList<String> text1 = new ArrayList<>();
+//            text1.add(text);
+//
+//            for (; ; ) {
+//                String text3 = scan.next();
+//                text1.add(text3);
+//
+//                if (text3.endsWith("\"")) {
+//                    text3 = String.valueOf(text1);
+//                    return text3;
+//                }
+//            }
+//
+//        }
+//        return text;
+//    }
 
 
 //    public static String askString(String msg) {
