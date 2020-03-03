@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 public class Reminder extends Alarm implements Expirable {
     private LocalDate date;
+    private boolean dismissed;
 
     @Override
     public void askInfo() {
@@ -30,15 +31,22 @@ public class Reminder extends Alarm implements Expirable {
 
     @Override
     public boolean isExpirred() {
+        if (dismissed) {
+            return false;
+        }
         var now = LocalDateTime.now();
         var dt = LocalDateTime.of(date, getTime());
-
         return now.isAfter(dt);
     }
 
     @Override
     protected String type() {
         return "Reminder";
+    }
+
+    @Override
+    public void dismis() {
+        dismissed = true;
     }
 
     public LocalDate getDate() {

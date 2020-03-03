@@ -9,6 +9,7 @@ import java.util.Locale;
 
 public class Alarm extends Note implements Expirable {
     private LocalTime time;
+    private boolean dismissed;
 
     @Override
     public void askInfo() {
@@ -43,7 +44,15 @@ public class Alarm extends Note implements Expirable {
 
     @Override
     public boolean isExpirred() {
+        if (dismissed) {
+            return false;
+        }
         var now = LocalTime.now();
         return now.isAfter(time);
+    }
+
+    @Override
+    public void dismis() {
+        dismissed = true;
     }
 }
