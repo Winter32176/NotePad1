@@ -2,10 +2,12 @@ package lv.tsi.javacourses.notepad.records.note;
 
 import lv.tsi.javacourses.notepad.Asker;
 import lv.tsi.javacourses.notepad.StringDateTime;
+import lv.tsi.javacourses.notepad.records.Expirable;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-public class Reminder extends Alarm {
+public class Reminder extends Alarm implements Expirable {
     private LocalDate date;
 
     @Override
@@ -18,6 +20,20 @@ public class Reminder extends Alarm {
     public String stringContent() {
         return super.stringContent() +
                 ", Date='" + StringDateTime.dateToString(date) + '\'';
+    }
+
+    @Override
+    public boolean contains1(String substr) {
+        return super.contains1(substr)
+                || StringDateTime.dateToString(date).contains(substr);
+    }
+
+    @Override
+    public boolean isExpirred() {
+        var now = LocalDateTime.now();
+        var dt = LocalDateTime.of(date, getTime());
+
+        return now.isAfter(dt);
     }
 
     @Override

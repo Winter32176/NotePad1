@@ -9,6 +9,12 @@ public abstract class AbstractRecord {
         this.id = count;
     }
 
+
+    public boolean contains1(String substr){
+        String strId = String.valueOf(id);
+        return strId.contains(substr);
+    }
+
     public int getId() {
         return id;
     }

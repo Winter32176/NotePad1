@@ -39,12 +39,37 @@ public class Main {
                 case "DelAll":
                     deleteAll();
                     break;
-
+                case "search":
+                case "sh":
+                    searchRecords();
+                    break;
+                case "expired":
+                    showExpired();
+                    break;
 
                 default:
                     System.out.println("Wrong command");
             }
 
+        }
+
+    }
+
+    private static void showExpired() {
+        for (var r : records.getAllRecords()) {
+            if (r instanceof Expirable && ((Expirable) r).isExpirred()) {
+                System.out.println(r);
+            }
+
+        }
+    }
+
+    private static void searchRecords() {
+        var substr = Asker.askString("Enter substring to find");
+        for (var r : records.getAllRecords()) {
+            if (r.contains1(substr)) {
+                System.out.println(r);
+            }
         }
 
     }

@@ -30,6 +30,16 @@ public class Person extends AbstractRecord {
     }
 
     @Override
+    public boolean contains1(String substr) {
+        var tmp = substr.toLowerCase();
+        return super.contains1(substr)
+                || name.toLowerCase().contains(tmp)
+                || surname.toLowerCase().contains(tmp)
+                || phone.toLowerCase().contains(tmp)
+                ||email.toLowerCase().contains(tmp);
+    }
+
+    @Override
     protected String type() {
         return "Person";
     }

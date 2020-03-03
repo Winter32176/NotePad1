@@ -2,10 +2,12 @@ package lv.tsi.javacourses.notepad.records.note;
 
 import lv.tsi.javacourses.notepad.Asker;
 import lv.tsi.javacourses.notepad.StringDateTime;
+import lv.tsi.javacourses.notepad.records.Expirable;
 
 import java.time.LocalTime;
+import java.util.Locale;
 
-public class Alarm extends Note {
+public class Alarm extends Note implements Expirable {
     private LocalTime time;
 
     @Override
@@ -21,6 +23,12 @@ public class Alarm extends Note {
     }
 
     @Override
+    public boolean contains1(String substr) {
+        return super.contains1(substr)
+                || StringDateTime.timeToString(time).contains(substr);
+    }
+
+    @Override
     protected String type() {
         return "Alarm";
     }
@@ -31,5 +39,11 @@ public class Alarm extends Note {
 
     public void setTime(LocalTime time) {
         this.time = time;
+    }
+
+    @Override
+    public boolean isExpirred() {
+        var now = LocalTime.now();
+        return now.isAfter(time);
     }
 }

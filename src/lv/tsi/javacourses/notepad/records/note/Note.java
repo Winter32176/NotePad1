@@ -21,6 +21,13 @@ public class Note extends AbstractRecord {
     }
 
     @Override
+    public boolean contains1(String substr) {
+        var tmp = substr.toLowerCase();
+        return super.contains1(substr)
+                ||text.contains(tmp);
+    }
+
+    @Override
     protected String type() {
         return "Note";
     }
