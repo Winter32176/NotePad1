@@ -40,20 +40,22 @@ public class Reminder extends Alarm implements Expirable {
     }
 
     @Override
+    public void dismis() {
+        dismissed = true;
+    }
+
+    @Override
     protected String type() {
         return "Reminder";
     }
 
-    @Override
-    public void dismis() {
-        dismissed = true;
-    }
 
     public LocalDate getDate() {
         return date;
     }
 
     public void setDate(LocalDate date) {
+
         this.date = date;
     }
 }
