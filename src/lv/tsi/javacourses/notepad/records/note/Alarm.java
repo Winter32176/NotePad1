@@ -4,9 +4,9 @@ import lv.tsi.javacourses.notepad.Asker;
 import lv.tsi.javacourses.notepad.StringDateTime;
 import lv.tsi.javacourses.notepad.records.Expirable;
 
+
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Locale;
 
 public class Alarm extends Note implements Expirable {
     private LocalTime time;
@@ -49,12 +49,14 @@ public class Alarm extends Note implements Expirable {
     public boolean isExpirred() {
         LocalDate date = LocalDate.now();
 
+
         if (check == false) {
             date1 = date;
         }
         check = true;
 
         if (date.isAfter(date1)) {
+            check = false;
             dismissed = false;
         }
 
@@ -62,9 +64,7 @@ public class Alarm extends Note implements Expirable {
         if (dismissed) {
             return false;
         }
-        if (date == date1) {
-            dismissed = true;
-        }
+
         var now = LocalTime.now();
         return now.isAfter(time);
     }
