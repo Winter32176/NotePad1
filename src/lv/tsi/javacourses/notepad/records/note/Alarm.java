@@ -55,7 +55,6 @@ public class Alarm extends Note implements Expirable {
 
 //        LocalDate date = LocalDate.now();
 //
-//
 //        if (check == false) {
 //            dismissedDate = date;
 //        }
@@ -66,11 +65,9 @@ public class Alarm extends Note implements Expirable {
 //            dismissed = false;
 //        }
 //
-//
 //        if (dismissed) {
 //            return false;
 //        }
-//
     }
 
 
