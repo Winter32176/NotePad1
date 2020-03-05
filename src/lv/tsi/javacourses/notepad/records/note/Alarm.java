@@ -12,7 +12,7 @@ public class Alarm extends Note implements Expirable {
     private LocalTime time;
     private boolean dismissed;
     private boolean check;
-    private LocalDate date1;
+    private LocalDate dismissedDate;
 
     @Override
     public void askInfo() {
@@ -47,30 +47,35 @@ public class Alarm extends Note implements Expirable {
 
     @Override
     public boolean isExpirred() {
-        LocalDate date = LocalDate.now();
-
-
-        if (check == false) {
-            date1 = date;
-        }
-        check = true;
-
-        if (date.isAfter(date1)) {
-            check = false;
-            dismissed = false;
-        }
-
-
-        if (dismissed) {
+        if (dismissedDate != null && dismissedDate.equals(LocalDate.now())) {
             return false;
         }
-
         var now = LocalTime.now();
         return now.isAfter(time);
+
+//        LocalDate date = LocalDate.now();
+//
+//
+//        if (check == false) {
+//            dismissedDate = date;
+//        }
+//        check = true;
+//
+//        if (date.isAfter(dismissedDate)) {
+//            check = false;
+//            dismissed = false;
+//        }
+//
+//
+//        if (dismissed) {
+//            return false;
+//        }
+//
     }
+
 
     @Override
     public void dismiss() {
-        dismissed = true;
+        LocalDate dismissedDate = LocalDate.now();
     }
 }
