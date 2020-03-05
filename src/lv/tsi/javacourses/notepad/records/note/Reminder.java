@@ -40,7 +40,7 @@ public class Reminder extends Alarm implements Expirable {
     }
 
     @Override
-    public void dismis() {
+    public void dismiss() {
         dismissed = true;
     }
 

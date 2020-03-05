@@ -4,5 +4,5 @@ public interface Expirable {
     boolean isExpirred();
 
 
-    void dismis();
+    void dismiss();
 }

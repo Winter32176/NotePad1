@@ -70,7 +70,7 @@ public class Alarm extends Note implements Expirable {
     }
 
     @Override
-    public void dismis() {
+    public void dismiss() {
         dismissed = true;
     }
 }

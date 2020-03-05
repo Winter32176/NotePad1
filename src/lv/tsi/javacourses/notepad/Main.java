@@ -65,7 +65,7 @@ public class Main {
                 if (r instanceof Expirable) {
                     Expirable e = ((Expirable) r);
                     if (e.isExpirred()) {
-                        e.dismis();
+                        e.dismiss();
                     }
                 } else {
                     System.out.println("It isn't expirable record");
